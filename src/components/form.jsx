@@ -23,7 +23,7 @@ class Myform extends React.Component {
 
   handelSubmit(event) {
     // hashpassword = this.state.password;
-    console.log(this.state.password);
+    // console.log(this.state.password);
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(this.state.password, salt, (err1, hash) => {
         api(this.state.emailId, this.state.username, hash);
