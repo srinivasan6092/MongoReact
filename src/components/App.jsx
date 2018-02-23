@@ -5,7 +5,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      header: 'React Component C',
+      header: 'Registration Form',
     };
   }
   render() {
@@ -14,9 +14,6 @@ class App extends React.Component {
         <h1>
           {this.state.header}
         </h1>
-        <div>
-                Welcome to a Componet Construction
-        </div>
         <Myform />
       </div>
     );

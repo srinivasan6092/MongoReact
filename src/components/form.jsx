@@ -1,5 +1,4 @@
 import React from 'react';
-import bcrypt from 'bcryptjs';
 import api from '../api';
 
 // const saltRounds = 10;
@@ -38,34 +37,36 @@ class Myform extends React.Component {
   handelSubmit(event) {
     // hashpassword = this.state.password;
     // console.log(this.state.password);
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(this.state.password, salt, (err1, hash) => {
-        api(this.state.emailId, this.state.username, hash)
-          .then(resp => this.setState({
-            submissionMsg: resp,
-            username: '',
-            password: '',
-            emailId: '',
-          }));
-      });
-    });
+
+    api(this.state.emailId, this.state.username, this.state.password)
+      .then(resp => this.setState({
+        submissionMsg: resp,
+        username: '',
+        password: '',
+        emailId: '',
+      }));
     event.preventDefault();
   }
 
   render() {
     return (
-      <form onSubmit={this.handelSubmit} >
+      <div>
+        <form onSubmit={this.handelSubmit} >
           Name <br />
-        <input type="text" id="username" value={this.state.username} onChange={this.handelOnChange} /><br />
+          <input type="text" id="username" value={this.state.username} onChange={this.handelOnChange} /><br />
         Email <br />
-        <input type="email" id="emailId" value={this.state.emailId} onChange={this.handelOnChange} /><br />
+          <input type="email" id="emailId" value={this.state.emailId} onChange={this.handelOnChange} /><br />
         Password <br />
-        <input type="password" id="password" value={this.state.password} onChange={this.handelOnChange} /><br /><br />
+          <input type="password" id="password" value={this.state.password} onChange={this.handelOnChange} /><br /><br />
+          <div>
+            <span><b>{this.state.submissionMsg}</b></span>
+          </div>
+          <button type="submit" > Submit </button>
+        </form>
         <div>
-          <span><b>{this.state.submissionMsg}</b></span>
+          <a href="/login"> Login </a>
         </div>
-        <button type="submit" > Submit </button>
-      </form>
+      </div>
     );
   }
 }
