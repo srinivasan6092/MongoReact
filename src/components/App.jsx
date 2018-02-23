@@ -5,7 +5,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      header: 'React Component',
+      header: 'React Component C',
     };
   }
   render() {
