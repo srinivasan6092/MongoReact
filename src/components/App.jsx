@@ -1,5 +1,5 @@
 import React from 'react';
-import Myform from './form';
+import Main from '../Main';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class App extends React.Component {
         <h1>
           {this.state.header}
         </h1>
-        <Myform />
+        <Main />
       </div>
     );
   }

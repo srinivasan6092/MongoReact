@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import api from '../api';
 
 // const saltRounds = 10;
@@ -65,6 +66,7 @@ class Myform extends React.Component {
         </form>
         <div>
           <a href="/login"> Login </a>
+          <Link to="/login">Login</Link>
         </div>
       </div>
     );
