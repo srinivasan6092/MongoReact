@@ -18,7 +18,7 @@ router.post('/create', (req, res) => {
     userName: req.body.userName,
     password: req.body.hashPassword,
   })
-    .then(result => res.send(`User Added ${result}`));
+    .then(result => res.send('Verification Email has been sent.'));
 });
 
 

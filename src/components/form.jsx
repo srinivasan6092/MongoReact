@@ -11,10 +11,24 @@ class Myform extends React.Component {
       username: '',
       password: '',
       emailId: '',
+      submissionMsg: '',
     };
 
     this.handelOnChange = this.handelOnChange.bind(this);
     this.handelSubmit = this.handelSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('enter DID Mount');
+  }
+
+  componentDidUpdate() {
+    console.log('enter componentDidUpdate');
+    if (this.state.submissionMsg !== '') {
+      setTimeout(() => {
+        this.setState({ submissionMsg: '' });
+      }, 2000);
+    }
   }
 
   handelOnChange(event) {
@@ -26,7 +40,13 @@ class Myform extends React.Component {
     // console.log(this.state.password);
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(this.state.password, salt, (err1, hash) => {
-        api(this.state.emailId, this.state.username, hash);
+        api(this.state.emailId, this.state.username, hash)
+          .then(resp => this.setState({
+            submissionMsg: resp,
+            username: '',
+            password: '',
+            emailId: '',
+          }));
       });
     });
     event.preventDefault();
@@ -41,6 +61,9 @@ class Myform extends React.Component {
         <input type="email" id="emailId" value={this.state.emailId} onChange={this.handelOnChange} /><br />
         Password <br />
         <input type="password" id="password" value={this.state.password} onChange={this.handelOnChange} /><br /><br />
+        <div>
+          <span><b>{this.state.submissionMsg}</b></span>
+        </div>
         <button type="submit" > Submit </button>
       </form>
     );
