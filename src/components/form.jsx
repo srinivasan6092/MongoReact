@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import api from '../api';
+// import PropTypes from 'prop-types';
+import * as api from '../api';
 
 // const saltRounds = 10;
 
@@ -39,7 +40,7 @@ class Myform extends React.Component {
     // hashpassword = this.state.password;
     // console.log(this.state.password);
 
-    api(this.state.emailId, this.state.username, this.state.password)
+    api.registerUser(this.state.emailId, this.state.username, this.state.password)
       .then(resp => this.setState({
         submissionMsg: resp,
         username: '',
@@ -52,11 +53,14 @@ class Myform extends React.Component {
   render() {
     return (
       <div>
+        <h1 >
+          Registration Form
+        </h1>
         <form onSubmit={this.handelSubmit} >
           Name <br />
-          <input type="text" id="username" value={this.state.username} onChange={this.handelOnChange} /><br />
+          <input type="text" id="username" value={this.state.username} onChange={this.handelOnChange} /><br /><br />
         Email <br />
-          <input type="email" id="emailId" value={this.state.emailId} onChange={this.handelOnChange} /><br />
+          <input type="email" id="emailId" value={this.state.emailId} onChange={this.handelOnChange} /><br /><br />
         Password <br />
           <input type="password" id="password" value={this.state.password} onChange={this.handelOnChange} /><br /><br />
           <div>
@@ -65,12 +69,15 @@ class Myform extends React.Component {
           <button type="submit" > Submit </button>
         </form>
         <div>
-          <a href="/login"> Login </a>
-          <Link to="/login">Login</Link>
+          <Link to="/login" >Login</Link>
         </div>
       </div>
     );
   }
 }
+
+/* Myform.propTypes = {
+  loginOnClick: PropTypes.func.isRequired,
+}; */
 
 export default Myform;

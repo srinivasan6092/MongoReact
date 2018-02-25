@@ -9,7 +9,11 @@ const mongodbURL = 'mongodb://localhost:27017';
 router.post('/create', (req, res) => {
   // Create the Documnet
   MongoClient.connect(mongodbURL, (err, client) => {
-    assert.equal(null, err);
+    // assert.equal(null, res.send('Error Connecting to Server'));
+    if (err) {
+      res.send('Error Connecting to Server');
+      return;
+    }
     console.log('Connected successfully to server');
     const mdb = client.db('mydb');
     /*
@@ -35,10 +39,40 @@ router.post('/create', (req, res) => {
           });
         } else {
           res.send('User Name already take.');
+          client.close();
         }
       });
   });
 });
 
+router.post('/logindetail', (req, res) => {
+  MongoClient.connect(mongodbURL, (err, client) => {
+    if (err) {
+      res.send('Error Connecting to Server');
+      return;
+    }
+    console.log('Connected successfully to server');
+    const mdb = client.db('mydb');
+
+    mdb.collection('registeredUser').findOne({ userName: req.body.userName })
+      .then((user) => {
+        if (!user) {
+        // No User with name found Redirect to login and though The Msg
+          res.send('User not Found. Kindly SignUp first');
+          client.close();
+        } else {
+          bcrypt.compare(req.body.hashPassword, user.password, (err1, resp) => { 
+            if (resp === true) {
+              res.send('User Found');
+            } else {
+              res.send('User Name or Password incorrect');
+            }
+          });
+          // res.send('User Name found.');
+          client.close();
+        }
+      });
+  });
+});
 
 export default router;

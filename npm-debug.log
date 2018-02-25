@@ -1,0 +1,36 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'dev' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.1
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle reactstartup@1.0.0~predev: reactstartup@1.0.0
+6 silly lifecycle reactstartup@1.0.0~predev: no script for predev, continuing
+7 info lifecycle reactstartup@1.0.0~dev: reactstartup@1.0.0
+8 verbose lifecycle reactstartup@1.0.0~dev: unsafe-perm in lifecycle true
+9 verbose lifecycle reactstartup@1.0.0~dev: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;F:\MDBCnt\node_modules\.bin;C:\Users\srinivasan_b\AppData\Roaming\npm;C:\Program Files\nodejs\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Java\jdk1.8.0_45\bin;C:\Program Files (x86)\OpenVPN\bin;C:\Users\srinivasan_b\AppData\Local\Programs\Python\Python35-32;C:\Program Files\nodejs\node_modules\npm\bin;.\node_modules\.bin;C:\Program Files\Git\cmd;C:\Program Files\Cloud Foundry;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Heroku\bin;C:\Users\srinivasan_b\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin
+10 verbose lifecycle reactstartup@1.0.0~dev: CWD: F:\MDBCnt
+11 silly lifecycle reactstartup@1.0.0~dev: Args: [ '/d /s /c', 'webpack -wd' ]
+12 verbose stack Error: kill ENOSYS
+12 verbose stack     at exports._errnoException (util.js:1018:11)
+12 verbose stack     at process.kill (internal/process.js:190:13)
+12 verbose stack     at process.listener (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:86:15)
+12 verbose stack     at emitNone (events.js:91:20)
+12 verbose stack     at process.emit (events.js:185:7)
+12 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at processEmit (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at Signal.wrap.onsignal (internal/process.js:217:44)
+13 verbose cwd F:\MDBCnt
+14 error Windows_NT 10.0.10240
+15 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "dev"
+16 error node v6.11.1
+17 error npm  v3.10.10
+18 error code ENOSYS
+19 error errno ENOSYS
+20 error syscall kill
+21 error kill ENOSYS
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]

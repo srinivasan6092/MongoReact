@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const registerUser = (emailID, userName, hashPassword) => axios.post('/api/create', { emailID, userName, hashPassword })
+export const registerUser = (emailID, userName, hashPassword) => axios.post('/api/create', { emailID, userName, hashPassword })
   .then(resp => resp.data);
 
-export default registerUser;
+export const loginUserDetail = (userName, hashPassword) => axios.post('/api/logindetail', { userName, hashPassword })
+  .then(resp => resp.data);
+
