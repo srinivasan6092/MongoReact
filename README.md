@@ -2,9 +2,9 @@
 
 This is a node basic authentication Module with the help of 
 
-React ( Server side rendering too , react route )
-Express
-PassportJS ( UserName and Password Statergy )
+React ( Server side rendering too , react route ),
+Express,
+PassportJS ( UserName and Password Statergy ),
 Mongo DB
 
 Steps To use
