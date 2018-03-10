@@ -102,7 +102,7 @@ passport.use(new LocalStrategy({
     MongoClient.connect(mongodbURL, (err, client) => {
       if (err) {
       // res.send('Error Connecting to Server');
-        return done(err);
+        return done(null, false, { message: 'Error Connecting to Server' });
       }
       console.log('Connected successfully to server passport');
       const mdb = client.db('mydb');
