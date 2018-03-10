@@ -4,6 +4,10 @@
     </head>
     <body>
         <div id="root"> <%- intialMark -%> </div>
+        <script type="text/javascript">
+            window.userdetail = <%- JSON.stringify(UserID) -%>;
+        </script>
         <script src="/bundle.js"> </script>
     </body>
+    
 </html>

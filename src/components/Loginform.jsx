@@ -19,7 +19,7 @@ class Loginform extends React.Component {
     console.log('enter componentDidUpdate Login');
     if (this.state.submissionMsg !== '') {
       if (this.state.submissionMsg === 'User Found') {
-        window.location = 'Myrequest';
+        // window.location = 'Myrequest';
       } else {
         setTimeout(() => {
           this.setState({ submissionMsg: '' });
